@@ -12,6 +12,7 @@ import Roles from '../features/Roles/Component';
 import Integration from '../features/Integration/Component';
 import Setting from '../features/Setting/Component';
 import NotFound from '../components/NotFound';
+import { QuestionSettings } from '../features/QuestionSettings/QuestionSettings';
 
 const AppRoutes = () => (
   <Router>
@@ -29,6 +30,10 @@ const AppRoutes = () => (
         >
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='jobs' element={<Jobs />} />
+          <Route
+           path="jobs/:jobId/questions-settings"
+           element={<QuestionSettings />}
+          />
           <Route path='candidates' element={<Candidates />} />
           <Route path='assessment' element={<Assessment />} />
           <Route path='analytics' element={<Analytics />} />
