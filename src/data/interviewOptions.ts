@@ -27,7 +27,7 @@ export const interviewOptions: InterviewOption[] = [
       "Ready in 30 seconds",
       "Complete interview set",
     ],
-    route: "/jobs/:jobId/quick-setup",
+    route: "quick-setup",
   },
   {
     title: "Smart Assistant",
@@ -41,7 +41,7 @@ export const interviewOptions: InterviewOption[] = [
       "Select categories & difficulty",
       "AI guides the process",
     ],
-    route: "/jobs/:jobId/smart-assistant",
+    route: "smart-assistant",
   },
   {
     title: "Expert Mode",
@@ -55,6 +55,6 @@ export const interviewOptions: InterviewOption[] = [
       "Full customization",
       "Professional templates",
     ],
-    route: "/jobs/:jobId/expert-mode",
+    route: "expert-mode",
   },
 ];

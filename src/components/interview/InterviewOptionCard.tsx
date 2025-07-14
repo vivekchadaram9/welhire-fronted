@@ -1,107 +1,142 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import Card from '@mui/material/Card'
-import CardMedia from '@mui/material/CardMedia'
-import CardContent from '@mui/material/CardContent'
-import Typography from '@mui/material/Typography'
-import Link from '@mui/material/Link'
-import Chip from '@mui/material/Chip'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import Box from '@mui/material/Box'
-import dotImg from '../../assets/images/interview/dot.svg'
-import type { InterviewOption } from '../../data/interviewOptions'
- 
+// src/components/molecules/InterviewOptionCard.tsx
+import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import {
+  Card,
+  CardContent,
+  Typography,
+  Link,
+  Chip,
+  List,
+  ListItem,
+  ListItemIcon,
+  Box
+} from '@mui/material';
+import dotImg from '../../assets/images/interview/dot.svg';
+import type { InterviewOption } from '../../data/interviewOptions';
+import { colors } from '../../styles/themes';
+
 interface Props {
-  option: InterviewOption
+  option: InterviewOption;
 }
 
 const InterviewOptionCard: React.FC<Props> = ({ option }) => {
-  const navigate = useNavigate()
-  const go = () => navigate(option.route.replace(':jobId',  ''))
+  const navigate = useNavigate();
+  const { jdRefId } = useParams<{ jdRefId: string }>();
+  // pull the last segment off your route template:
+  const segment = option.route.split('/').pop()!;  // "quick-setup", etc.
+
+  const go = () => {
+    // absolute path:
+    navigate(`/jobs/${jdRefId}/${segment}`);
+  };
 
   return (
     <Card
       onClick={go}
       variant="outlined"
       sx={{
-        borderRadius: 4,
-        boxShadow: 1,
+        width: '340px',
+        borderRadius: '12px',          
+        boxShadow: 1,                  
         cursor: 'pointer',
         display: 'flex',
-        padding:4,
         flexDirection: 'column',
+        pl: 5,
+        pr: 5,
+        pt: 2,
+        pb: 2,
         '&:hover': { boxShadow: 3 },
       }}
     >
-      <CardContent sx={{ p: 2, flexGrow: 1 }}>
+      <CardContent sx={{ p: 0, flexGrow: 1 }}>
+  
         <Typography
           variant="subtitle1"
           align="center"
-          fontWeight={600}
+          color={colors.mainBackground}
           gutterBottom
-          color='#292F66'
         >
           {option.title}
         </Typography>
 
-        <CardMedia
+         <Box
           component="img"
-          image={option.image}
+          src={option.image}
           alt={option.title}
-          sx={{ width: 163, height: 143, mx: 'auto', my: 1 }}
+          sx={{
+            width: 163,
+            height: 143,
+            mx: 'auto',
+            my: 1,
+          }}
         />
 
-
-        <Box textAlign="left" mb={2} mt={2}>
+         <Box textAlign="left" my={2}>
           <Chip
             label={option.time}
             variant="outlined"
             size="small"
-             sx={{ borderRadius: '12px', px: 1.5,color:'#5D5C6D' }}
+            sx={{
+              borderRadius: '16px',
+              px: 1.5,
+              color: 'text.secondary',
+              borderColor: 'grey.300',
+            }}
           />
         </Box>
 
-        <Typography variant="body2" color='#5D5D5D' fontWeight={600} mb={2}>
+         <Typography
+          variant="body2"
+          color="text.primary"
+          fontWeight="fontWeightMedium"
+          mb={1}
+        >
           {option.description}
         </Typography>
-        <Typography variant="body2" color="#838383" mb={1} sx={{fontWeight:'700'}} >
+        <Typography variant="body2" color="text.secondary" mb={1}>
           {option.target}
         </Typography>
 
-        <Typography variant="body2" color='#4B78FD' mb={1}>
+         <Typography variant="body2" mb={1}>
           <Link
             component="button"
+            color="primary"
             underline="hover"
+            textAlign={'left'}
             onClick={(e) => {
-              e.stopPropagation()
-              go()
+              e.stopPropagation();
+              go();
             }}
-            sx={{ fontWeight: 500 }}
+            sx={{ fontWeight: 'fontWeightMedium' }}
           >
-            {option.goal }
+            {option.goal}
           </Link>
         </Typography>
 
-        <List dense>
+         <List dense>
           {option.features.map((feat) => (
-            <ListItem key={feat} disableGutters sx={{ py: 0.5 }}  >
+            <ListItem key={feat} disableGutters sx={{ py: 0.5 }}>
               <ListItemIcon sx={{ minWidth: 24 }}>
-                 <Box
+                <Box
                   component="img"
                   src={dotImg}
-                  alt="dot"
-                  sx={{ width: 8, height: 8 }}
+                  alt=""
+                  sx={{
+                    width: 8,
+                    height: 8,
+                  }}
                 />
               </ListItemIcon>
-              <Typography variant="body2" color='#656576' >{feat}</Typography>
+              <Typography variant="body2" color="text.secondary">
+                {feat}
+              </Typography>
             </ListItem>
           ))}
         </List>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
 
-export default InterviewOptionCard
+export default InterviewOptionCard;
