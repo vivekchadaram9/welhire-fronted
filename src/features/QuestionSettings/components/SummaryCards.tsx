@@ -1,5 +1,7 @@
 import { Box, Stack, Paper, Typography } from "@mui/material";
 import { Icons } from "../../../assets/icons";
+import { theme } from "../../../styles/themes";
+import SectionWrapper from "../../../components/SectionWrapper";
 
 interface SummaryCardsProps {
   totalQuestions: number;
@@ -22,14 +24,7 @@ export default function SummaryCards({
   ];
 
   return (
-    <Paper
-      elevation={0}
-      sx={{
-        bgcolor: "white",
-        p: 2,
-        borderRadius: 1.5,
-      }}
-    >
+ <SectionWrapper>
       <Box display="flex" alignItems="center" flexShrink={0} p={1}>
         <Icons.interviewOverviewIcon height={30} width={30}/>,
         <Typography variant="h6" fontWeight="bold" sx={{ m: 1 }}>
@@ -60,6 +55,6 @@ export default function SummaryCards({
           ))}
         </Stack>
       </Box>
-    </Paper>
+    </SectionWrapper>
   );
 }

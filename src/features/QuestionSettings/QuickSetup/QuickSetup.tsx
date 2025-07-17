@@ -26,6 +26,7 @@ import CommonButton from '../../../components/interview/CommonButton';
 import { ArrowLeft, ArrowRight, ArrowRightToLine } from 'lucide-react';
 import { toast } from 'sonner';
 import axios from 'axios';
+import Button from '../../../components/Button';
  
 const QuickSetup: React.FC = () => {
   const { jdRefId } = useParams<{ jdRefId: string }>();
@@ -112,18 +113,30 @@ const handleSave = async () => {
       <DefaultQuestions questions={quick.defaultQuestions} />
 
       <Box sx={{ p: 2, pl:5,pr:5,  mt: 3, borderRadius: 1, bgcolor: 'white'}} display={'flex'} justifyContent={'space-between'} >   
-        <CommonButton
-          variant="outlined"
-          startIcon={<ArrowLeft />}
+         <Button
+          label="Back"
+          icon={<ArrowLeft />}
           onClick={() => navigate(-1)}
-        >
-          Back
-        </CommonButton>
+          backgroundColor="#fff"
+          textColor="#000"
+          border="1px solid rgba(0,0,0,0.12)"
+          borderRadius="8px"
+          padding="8px 16px"
+        />
 
-        <CommonButton endIcon={<ArrowRight />}  onClick={handleSave} disabled={saving}   > 
-          {saving ? <CircularProgress size={16} color="inherit" /> : 'Generate Interview'}
-        </CommonButton>
+         <Button
+          icon={<ArrowRight />}
+          label={
+            saving
+              ? <CircularProgress size={16} color="inherit" />
+              : 'Generate Interview'
+          }
+          onClick={handleSave}
+          disabled={saving}
+        />
       </Box>
+
+ 
     </Box>
   );
 };
