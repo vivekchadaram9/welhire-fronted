@@ -13,8 +13,8 @@ import Integration from '../features/Integration/Component';
 import Setting from '../features/Setting/Component';
 import NotFound from '../components/NotFound';
 import { QuestionSettings } from '../features/QuestionSettings/QuestionSettings';
-import { QuickSetup } from '../features/QuestionSettings/QuickSetup/QuickSetup';
-
+import QuickSetup from '../features/QuestionSettings/QuickSetup/QuickSetup';
+ 
 const AppRoutes = () => (
   <Router>
     <Routes>
