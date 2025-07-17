@@ -17,6 +17,9 @@ import SoftSkillsIcon from "../images/interview/softSkills.svg?react";
 import BehaviorIcon from "../images/interview/BehaviorIcon.svg?react";
 import InterviewOverviewIcon from "../images/interview/interviewOverviewIcon.svg?react";
 import HandShakeIcon from "../images/interview/handShake.svg?react";
+import ListIcon from "../images/interview/listIcon.svg?react";
+import HiringIcon from "../images/interview/hiringIcon.svg?react";
+
 
 
 export const Icons = {
@@ -38,7 +41,7 @@ export const Icons = {
   softSkills:   SoftSkillsIcon,
   behavior:     BehaviorIcon,
   interviewOverviewIcon:InterviewOverviewIcon,
-  handShakeIcon:HandShakeIcon
+  handShakeIcon:HandShakeIcon,
+  listIcon:ListIcon,
+  hiringIcon:HiringIcon
 };
-
- 

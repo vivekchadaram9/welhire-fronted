@@ -8,6 +8,8 @@ import {
 } from '@mui/material';
 import { Icons } from '../../../assets/icons';
 import type { SkillEntry } from '../../../types/interview/interview.type';
+import { theme } from '../../../styles/themes';
+import SectionWrapper from '../../../components/SectionWrapper';
 
 interface SkillsCoverageProps {
   hardSkills: SkillEntry[];
@@ -73,15 +75,7 @@ export default function SkillsCoverage({
   ];
 
   return (
-    <Paper
-      elevation={0}
-      sx={{
-        bgcolor: 'white',
-        p: 3,
-        borderRadius: 2,
-        mt: 4,
-      }}
-    >
+ <SectionWrapper>
       <Box display="flex" alignItems="center" mb={2}>
         <Icons.multiTasking width={24} height={24} />
         <Typography variant="h6" fontWeight="bold" sx={{ ml: 1 }}>
@@ -175,6 +169,6 @@ export default function SkillsCoverage({
           </Paper>
         ))}
       </Stack>
-    </Paper>
+    </SectionWrapper>
   );
 }

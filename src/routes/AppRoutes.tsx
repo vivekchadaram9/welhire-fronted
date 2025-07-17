@@ -14,6 +14,7 @@ import Setting from '../features/Setting/Component';
 import NotFound from '../components/NotFound';
 import { QuestionSettings } from '../features/QuestionSettings/QuestionSettings';
 import QuickSetup from '../features/QuestionSettings/QuickSetup/QuickSetup';
+import SmartAssistant from '../features/QuestionSettings/SmartAssistant/SmartAssistant';
  
 const AppRoutes = () => (
   <Router>
@@ -36,8 +37,8 @@ const AppRoutes = () => (
               <Route index element={null} />
               <Route path='questions-settings'  element={<QuestionSettings />} />
               <Route path="quick-setup"     element={<QuickSetup />} />
-              {/* <Route path="smart-assistant" element={<SmartAssistant />} />
-              <Route path="expert-mode"     element={<ExpertMode />} /> */}
+              <Route path="smart-assistant" element={<SmartAssistant />} />
+               {/*<Route path="expert-mode"     element={<ExpertMode />} /> */}
           </Route>
           <Route path='candidates' element={<Candidates />} />
           <Route path='assessment' element={<Assessment />} />

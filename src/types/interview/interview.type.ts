@@ -46,3 +46,11 @@ export interface JdSkills {
   softSkills: SkillEntry[];
   behavioralCompetencies: string[];
 }
+
+ 
+
+export interface SmartSettingsPayload {
+  technicalSkills: SkillEntry[];
+  softSkills: SkillEntry[];
+  behavioralCompetencies: string[];
+}
