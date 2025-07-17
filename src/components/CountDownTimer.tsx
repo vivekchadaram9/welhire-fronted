@@ -53,12 +53,12 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({
         fontSize: '14px',
         fontWeight: '500',
         color: '#000',
-        marginTop: '10px',
-        textAlign: 'center',
+        // marginTop: '10px',
+        // textAlign: 'center',
       }}
     >
       {!expired ? (
-        <span>| {formatTime(seconds)}</span>
+        <span> {formatTime(seconds)}</span>
       ) : (
         <button
           style={{

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, InputBase } from '@mui/material';
+import { Box, InputBase, type SxProps, type Theme } from '@mui/material';
 
 interface InputProps {
   type?: string;
@@ -10,9 +10,10 @@ interface InputProps {
   borderColor?: string;
   textColor?: string;
   borderRadius?: string;
+  styles?: SxProps<Theme>;
 }
 
-const Input : React.FC<InputProps> = ({
+const Input: React.FC<InputProps> = ({
   type = 'text',
   placeholder,
   icon,
@@ -21,6 +22,7 @@ const Input : React.FC<InputProps> = ({
   borderColor = '#ccc',
   textColor = '#333',
   borderRadius = '0',
+  styles = {},
 }) => {
   return (
     <Box
@@ -56,13 +58,14 @@ const Input : React.FC<InputProps> = ({
           borderBottom: `1px solid ${borderColor}`,
           borderRadius: borderRadius,
           color: textColor,
-          padding: '10px 10px 10px 36px',
+          padding: icon ? '10px 10px 10px 36px' : '10px',
           backgroundColor: 'transparent',
           outline: 'none',
           fontSize: '14px',
           '&:focus': {
             borderBottom: '2px solid #007bff',
           },
+          ...styles,
         }}
       />
     </Box>
