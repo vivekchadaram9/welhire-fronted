@@ -1,11 +1,9 @@
-// src/features/QuestionSettings/QuickSetup/QuickSetup.tsx
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   Box,
   Typography,
   CircularProgress,
-  Stack,
 } from '@mui/material';
  
 import type {
@@ -22,11 +20,9 @@ import {
 import SummaryCards from '../components/SummaryCards';
 import SkillsCoverage from '../components/SkillsCoverage';
 import DefaultQuestions from '../components/DefaultQuestions';
-import CommonButton from '../../../components/interview/CommonButton';
-import { ArrowLeft, ArrowRight, ArrowRightToLine } from 'lucide-react';
 import { toast } from 'sonner';
 import axios from 'axios';
-import Button from '../../../components/Button';
+import ActionButtons from '../components/ActionButtons';
  
 const QuickSetup: React.FC = () => {
   const { jdRefId } = useParams<{ jdRefId: string }>();
@@ -112,31 +108,12 @@ const handleSave = async () => {
 
       <DefaultQuestions questions={quick.defaultQuestions} />
 
-      <Box sx={{ p: 2, pl:5,pr:5,  mt: 3, borderRadius: 1, bgcolor: 'white'}} display={'flex'} justifyContent={'space-between'} >   
-         <Button
-          label="Back"
-          icon={<ArrowLeft />}
-          onClick={() => navigate(-1)}
-          backgroundColor="#fff"
-          textColor="#000"
-          border="1px solid rgba(0,0,0,0.12)"
-          borderRadius="8px"
-          padding="8px 16px"
+      <ActionButtons
+        onBack={() => navigate(-1)}
+        onNext={handleSave}
+        nextLabel="Generate Interview"
+        nextLoading={saving}
         />
-
-         <Button
-          icon={<ArrowRight />}
-          label={
-            saving
-              ? <CircularProgress size={16} color="inherit" />
-              : 'Generate Interview'
-          }
-          onClick={handleSave}
-          disabled={saving}
-        />
-      </Box>
-
- 
     </Box>
   );
 };

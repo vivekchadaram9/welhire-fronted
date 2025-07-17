@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   Box,
   Typography,
   CircularProgress,
 } from "@mui/material";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import axios from "axios";
 
@@ -17,7 +16,7 @@ import SoftSkillsSelector from "../components/SoftSkillsSelector";
 import BehavioralCompetenciesSelector from "../components/BehavioralCompetenciesSelector";
 import { Icons } from "../../../assets/icons";
 import SectionWrapper from "../../../components/SectionWrapper";
-import Button from "../../../components/Button";
+import ActionButtons from "../components/ActionButtons";
 
 export default function SmartAssistant() {
   const { jdRefId } = useParams<{ jdRefId: string }>();
@@ -181,32 +180,14 @@ export default function SmartAssistant() {
           />
         </Box>
 
-      
-
-     <Box sx={{ p: 2, pl:5,pr:5,  mt: 3, borderRadius: 1, bgcolor: 'white'}} display={'flex'} justifyContent={'space-between'} >   
-         <Button
-          label="Back"
-          icon={<ArrowLeft />}
-          onClick={() => navigate(-1)}
-          backgroundColor="#fff"
-          textColor="#000"
-          border="1px solid rgba(0,0,0,0.12)"
-          borderRadius="8px"
-          padding="8px 16px"
-        />
-
-         <Button
-          icon={<ArrowRight />}
-          label={
-            saving
-              ? <CircularProgress size={16} color="inherit" />
-              : 'Generate Interview'
-          }
-          onClick={handleGenerate}
-          disabled={saving}
-        />
-      </Box>
-      </SectionWrapper>
-    </Box>
+         </SectionWrapper>
+   
+           <ActionButtons
+              onBack={() => navigate(-1)}
+              onNext={handleGenerate}
+              nextLabel="Generate Interview"
+              nextLoading={saving}
+            />
+            </Box>
   );
 }

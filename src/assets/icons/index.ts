@@ -19,7 +19,7 @@ import InterviewOverviewIcon from "../images/interview/interviewOverviewIcon.svg
 import HandShakeIcon from "../images/interview/handShake.svg?react";
 import ListIcon from "../images/interview/listIcon.svg?react";
 import HiringIcon from "../images/interview/hiringIcon.svg?react";
-
+import JobInterview from "../images/interview/jobInterview.svg?react";
 
 
 export const Icons = {
@@ -43,5 +43,6 @@ export const Icons = {
   interviewOverviewIcon:InterviewOverviewIcon,
   handShakeIcon:HandShakeIcon,
   listIcon:ListIcon,
-  hiringIcon:HiringIcon
+  hiringIcon:HiringIcon,
+  jobInterview:JobInterview
 };
