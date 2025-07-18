@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Button as MuiButton } from '@mui/material';
+import { colors } from '../styles/themes';
 
 interface ButtonProps {
   label: string | React.ReactNode;
@@ -19,9 +20,9 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({
   label,
   onClick,
-  backgroundColor = '#003A6D',
+  backgroundColor = colors.mainBackground,
   textColor = '#fff',
-  borderRadius = '8px',
+  borderRadius = '6px',
   padding = '10px 20px',
   border = 'none',
   icon,
@@ -49,7 +50,7 @@ const Button: React.FC<ButtonProps> = ({
         justifyContent: 'center',
         gap: '8px',
         '&:hover': {
-          opacity: 0.9,
+          opacity: 0.8,
           backgroundColor,
         },
       }}

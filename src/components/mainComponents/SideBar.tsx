@@ -42,11 +42,13 @@ const SideBar = () => {
         {isOpen ? (
           <Icon name='logo' className='w-40 h-25 mx-auto mt-4' />
         ) : (
-          <img
-            src={welspunSmallLogo}
-            alt='Logo'
-            className='w-35 h-25 mx-auto mt-4 bg-[#D9EBFF]'
-          />
+          <div className='w-25 h-25 flex justify-center items-center mx-auto mt-4'>
+            <img
+              src={welspunSmallLogo}
+              alt='Logo'
+              className='w-20 h-20  bg-[#292F66]'
+            />
+          </div>
         )}
         <nav className='flex flex-col space-y-2 mt-4 mx-5 justify-between flex-1'>
           <div className='space-y-2'>
