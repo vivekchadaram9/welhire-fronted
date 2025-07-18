@@ -4,4 +4,5 @@ export const API_URLS = {
   quickSettings: (jdRefId: string) => `/api/v1/quick-settings/${jdRefId}`,
   smartSettings: (jdRefId: string) => `/api/v1/smart-settings/${jdRefId}`,
   jdSkills:      (jdRefId: string) => `/jd-skills/${jdRefId}`,
+  DEFAULT_QUESTIONS : 'api/v1/default-intro-questions'
 } as const;

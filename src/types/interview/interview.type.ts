@@ -5,12 +5,7 @@ export interface QuickQuestionSettings {
   noOfSoftSkillQuestions: number;
   noOfBehavioralQuestions: number;
   noOfCategories: number;
-  defaultQuestions: {
-    id: string;
-    text: string;
-    type: string;
-    timeMins: number;
-  }[];
+  defaultQuestions: InterviewQuestion[];
 }
 
 export interface SavedQuestionSettings {
@@ -53,4 +48,20 @@ export interface SmartSettingsPayload {
   technicalSkills: SkillEntry[];
   softSkills: SkillEntry[];
   behavioralCompetencies: string[];
+}
+
+export interface QuestionSettingsCounts {
+    noOfSoftSkillQuestions: number,
+    noOfTechnicalSkillQuestions: number,
+    noOfBehavioralQuestions: number
+}
+
+export interface InterviewQuestion{
+  id: string;
+  text: string;
+  category: string | null;
+  skill: string;
+  difficulty: string | null;
+  type: string;
+  timeMins: number;
 }
